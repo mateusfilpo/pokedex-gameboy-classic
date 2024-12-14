@@ -1,0 +1,623 @@
+@font-face {
+    font-family: 'Pokemon';
+    src: url('../fonts/PKMN\ RBYGSC.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ccc;
+}
+
+.help {
+    background-color: #b8b5b5;
+
+    border: 2px solid black;
+    border-radius: 100%;
+    position: absolute;
+    top: 5%;
+    left: 8%;
+    width: 40px;
+    height: 40px;
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+    font-family: 'Segoe UI';
+    font-size: 23px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: scale 0.2s ease;
+}
+
+.help:active {
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}
+
+.popup {
+    position: fixed;
+    z-index: 1000;
+    top: 10%;
+    left: 8%;
+    width: 500px;
+    height: 355px;
+    background-color: #b8b5b5;
+    border: 2.5px solid black;
+
+    border-radius: 2%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content {
+    font-family: 'Pokemon';
+    font-size: 15px;
+    margin-left: 20px;
+
+    line-height: 25px;
+    word-spacing: 2px;
+}
+
+.popup .close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.moldura {
+    width: 600px;
+    height: 500px;
+    border: 6px solid #ccc;
+    position: absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ccc;
+}
+
+.game-boy {
+    width: 375px;
+    height: 525px;
+    background-color: rgb(193, 183, 163);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4.5%;
+    border-bottom-right-radius: 75px;
+    box-shadow: 4.5px 7.5px 7.5px rgba(0, 0, 0, 0.4);
+}
+
+.screen-border {
+    width: 80%;
+    height: 50%;
+    background-color: rgb(110, 110, 110);
+    position: absolute;
+    top: 30px;
+    left: 37px;
+    border-radius: 7.5%;
+    border-bottom-right-radius: 75px;
+    box-shadow: 1.5px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.screen-label {
+    display: flex;
+    flex-direction: row;
+}
+
+.lines-left {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.line-red {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(90, 56, 72, 0.781);
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.line-blue {
+    width: 100%;
+    height: 2.9px;
+    background-color: rgba(15, 14, 54, 0.781);
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.screen-label-text {
+    font-family: 'Segoe UI';
+    font-size: 7.1px;
+    color: white;
+    margin-left: 6px;
+    margin-top: 12px;
+    margin-right: -7px;
+    font-weight: 400;
+}
+
+.lines-right {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: -5px;
+    margin-left: 0px;
+
+    padding: 0px;
+}
+
+.lines-right .line-red {
+    width: 59%;
+    height: 3px;
+    background-color: rgba(90, 56, 72, 0.781);
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.lines-right .line-blue {
+    width: 59%;
+    height: 2.9px;
+    background-color: rgba(15, 14, 54, 0.781);
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.screen {
+    width: 60%;
+    height: 75%;
+    background-color: rgb(170, 170, 170);
+    position: absolute;
+    top: 36px;
+    left: 20%;
+
+    transition: opacity 0.3s ease-in;
+    font-family: 'Pokemon', sans-serif;
+
+    isolation: isolate;
+
+    border-radius: 1.5%;
+}
+
+.screen.off {
+    background-color: rgb(170, 170, 170); 
+    opacity: 0.5; 
+    transition: opacity 0.3s ease;
+}
+
+.screen.off .description-text,
+.screen.off .name,
+.screen.off .specie,
+.screen.off .height,
+.screen.off .weight,
+.screen.off .imagem,
+.screen.off .number,
+.screen.off .divider {
+    display: none;
+}
+
+.screen-top {
+    margin: 15px;
+    margin-top: 7.5px;
+    margin-bottom: 0px;
+
+    display: flex;
+    flex-direction: row;
+    height: 78px;
+}
+
+.screen-top-1 {
+    margin-top: 13px;
+}
+
+.imagem-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imagem-div {
+    margin-top: 0px;
+}
+
+.imagem {
+    mix-blend-mode: multiply;
+}
+
+.number {
+    font-size: 9px;
+    margin-left: 5px;
+}
+
+.screen-top-2 {
+    margin-left: 16px;
+}
+
+.info {
+    height: 75px;
+
+    white-space: pre;
+    font-size: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name, .specie {
+    text-transform: uppercase;
+}
+
+.specie {
+    word-spacing: 1.8px;
+    margin-left: 0px;
+}
+
+.height, .weight {
+    margin-left: 1px;
+}
+
+.divider {
+    margin-top: 8px;
+    width: 100%;
+    height: 1.5px;
+    background-color: black;
+}
+
+.description {
+    margin-left: 12px;
+    font-size: 7.5px;
+    word-spacing: 1.5px;
+    line-height: 2.25;
+}
+
+.power {
+    width: 15px;
+    height: 15px;
+    border-radius: 7.5px;
+    background-color: rgb(121, 40, 40);
+    position: absolute;
+    top: 40%;
+    left: 7%;
+
+    transition: background-color 0.3s ease;
+}
+
+.power-text {
+    position: absolute;
+    color: white;
+
+    font-size: 8px;
+
+    top: 47%;
+    left: 12px;
+}
+
+.ligado {
+    transition-duration: 0.3s;
+    background-color: rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 10px 3px rgba(255, 0, 0, 0.1);
+}
+
+.power.ligado ~ .screen.off {
+    background-color: none;
+    opacity: 1;
+}
+
+.logo {
+    position: absolute;
+    top: 101%;
+    left: 5%;
+    width: 100%;
+    color: rgb(49, 41, 90);
+
+    z-index: 11;
+}
+
+.nintendo {
+    float: left;
+    font-weight: bolder;
+    font-size: 13px;
+    line-height: 39px;
+}
+
+.gb {
+    float: left;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bolder;
+}
+
+.tm {
+    margin-top: 14.374px;
+    font-size: 9px;
+}
+
+.d-pad {
+    width: 90px;
+    height: 90px;
+    background-color: rgb(168, 157, 141);
+    position: absolute;
+    top: 130%;
+    left: 0;
+    border-radius: 75px;
+}
+
+.d-y {
+    width: 19.5px;
+    height: 52.5px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4.5px;
+}
+
+.d-x-left {
+    width: 20.25px;
+    height: 19.5px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    right: 48%;
+    transform: translate(-50%, -50%);
+    border-radius: 4.5px 0px 0px 4.5px;
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.d-x-right {
+    width: 20.25px;
+    height: 19.5px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+    border-radius: 0px 4.5px 4.5px 0px;
+    transition: box-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+.d-x-left:active, .d-x-right:active {
+    box-shadow: inset 1.5px 1.5px 7.5px 1.2px rgba(255, 255, 255, 0.3);
+}
+
+.active-button-x {
+    box-shadow: inset 1.5px 1.5px 7.5px 1.2px rgba(255, 255, 255, 0.3);
+}
+
+.buttons {
+    width: 45px;
+    height: 105px;
+    background-color: rgba(168, 157, 141, 0.795);
+    position: absolute;
+    box-shadow: 4.5px 4.5px 4.5px rgb(0, 0, 0, 0.3);
+    top: 123%;
+    right: 10%;
+    transform: rotate(60deg);
+    border-radius: 22.5px;
+}
+
+.b-a {
+    width: 33px;
+    height: 33px;
+    background-color: rgb(111, 4, 46);
+    border-radius: 15px;
+    position: absolute;
+    top: 6px;
+    left: 7.5px;
+    box-shadow: 3px 3px 3px rgba(114, 49, 49, 0.418);
+    transition: background-color 0.5s, box-shadow 0.5s;
+    cursor: pointer;
+}
+
+.b-a:active {
+    transition-duration: 0.5s;
+    background-color: rgb(87, 4, 37);
+}
+
+.b-b {
+    width: 33px;
+    height: 33px;
+    background-color: rgb(111, 4, 46);
+    border-radius: 15px;
+    position: absolute;
+    bottom: 7.5px;
+    left: 7.5px;
+    box-shadow: 3px 3px 3px rgba(114, 49, 49, 0.418);
+    transition: background-color 0.5s, box-shadow 0.5s;
+    cursor: pointer;
+}
+
+.b-b:active {
+    transition-duration: 0.5s;
+    background-color: rgb(66, 3, 29);
+}
+
+.active-button-a-b {
+    transition-duration: 0.5s;
+    background-color: rgb(66, 3, 29);
+}
+
+.b-characters {
+    transform: rotate(-31deg);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 152%;
+    left: 78%;
+    color: rgb(23, 13, 64);
+    font-family: 'Segoe UI';
+    font-weight: bold;
+}
+
+.b-character-b {
+  margin-right: 40px;
+}
+
+.buttons_s {
+    width: 45px;
+    height: 45px;
+
+    position: absolute;
+    top: 155%;
+    left: 40%;
+}
+
+.start {
+    width: 9px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: rgb(99, 88, 81);
+    transform: rotate(50deg);
+    position: absolute;
+    right: 0px;
+    top: 0;
+    box-shadow: 1.5px 1.5px 2px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.5s ease;
+}
+
+.start:active {
+    transition-duration: 0.5s;
+    background-color: rgb(75, 66, 61);
+}
+
+.select {
+    width: 9px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: rgb(99, 88, 81);
+    transform: rotate(50deg);
+    box-shadow: 1.5px 1.5px 2px 2px rgba(0, 0, 0, 0.3);
+
+    transition: background-color 0.5s ease;
+}
+
+.select:active {
+    transition-duration: 0.5s;
+    background-color: rgb(75, 66, 61);
+}
+
+.start-select-active {
+    transition-duration: 0.5s;
+    background-color: rgb(75, 66, 61);
+}
+
+.buttons-s-text {
+    transform: rotate(-40deg);
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+
+    color: rgb(23, 13, 64);
+    font-size: 9px;
+    font-weight: bold;
+
+    top: 158%;
+    left: 40%;
+}
+
+.start-text {
+    margin-top: 22px;
+    margin-left: -05px;
+}
+
+.status-section {
+    display: flex;
+}
+
+.types {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-left: -12px;
+}
+
+.type-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+}
+
+.poke-type1 {
+    text-transform: uppercase;
+    margin-top: -15px;
+    margin-left: 8px;
+
+    text-align: left;
+
+}
+
+.type-two {
+    margin-top: -9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+}
+
+.poke-type2 {
+    text-transform: uppercase;
+    margin-top: -15px;
+    margin-left: 8px;
+
+    text-align: left;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+    margin-left: 0px;
+
+    width: 100px;
+}
+
+.title .status-text {
+    font-size: 8px;
+    text-align: center;
+    word-spacing: 6px;
+    margin-top: 8px;
+}
+
+.status-elements {
+    font-size: 7px;
+    text-align: center;
+    margin-top: -13px;
+}
+
+.status-elements p {
+    margin-top: -7px;
+    margin-bottom: 5px;
+}
+
+.sound {
+    position: absolute;
+    top: 160%;
+    left: 88%;
+    cursor: pointer;
+    z-index: 999;
+}

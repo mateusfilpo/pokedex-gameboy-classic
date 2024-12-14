@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/pokemon-icon.svg" type="image/svg+xml">
+    <title>Pokedex</title>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
+</head>
+<body>
+    <div class="moldura">
+        <div class="help">
+            <p>?</p>
+        </div>
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <span id="closePopup" class="close">&times;</span>
+                <h3>Controls</h3>
+                <ul>
+                    <li><strong>Enter</strong>: Start (turns on the Pokédex)</li>
+                    <li><strong>Left and Right Arrows</strong>: Navigate through the Pokémon</li>
+                    <li><strong>Z or A</strong>: Button A (toggles between Description and Status)</li>
+                    <li><strong>X or B</strong>: Button B (toggles between Description and Status)</li>
+                    <li><strong>Space</strong>: Select (toggles between Description and Status)</li>
+                    <li><strong>Sound Icon</strong>: Turns audio on/off</li>
+                    <li><strong>Esc</strong>: Open or Close this screen</li>
+                </ul>
+            </div>
+        </div>
+        <div class="game-boy">
+            <div class="screen-border">
+                <div class="screen-label">
+                    <div class="lines-left">
+                        <div class="line-red"></div>
+                        <div class="line-blue"></div>
+                    </div>
+                    <div class="screen-label-text">
+                        DOT MATRIX WITH STEREO SOUND
+                    </div>
+                    <div class="lines-right">
+                        <div class="line-red"></div>
+                        <div class="line-blue"></div>
+                    </div>
+                </div>
+                <div class="power"></div>
+                <div class="power-text">BATTERY</div>
+                <div class="screen off">
+                    <div class="screen-top">
+                        <div class="screen-top-1">
+                            <div class="imagem-number">
+                                <div id="imagem-div" class="imagem-div">
+                                </div>
+                                <div id="number" class="number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="screen-top-2">
+                            <div class="info">
+                                <div id="name" class="name"></div>
+                                <div id="specie" class="specie"></div>
+                                <div id="height" class="height"></div>
+                                <div id="weight" class="weight"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    
+                    <div class="screen-bottom">
+                        <div class="description">
+                            <p id="description-text" class="description-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-pad">
+                    <div class="d-y"></div>
+                    <div class="d-x-left"></div>
+                    <div class="d-x-right"></div>
+                </div>
+                <div class="logo">
+                    <div class="nintendo">Nintendo</div>
+                    <div class="gb">Game-boy</div>
+                    <div class="tm">TM</div>
+                </div>
+                <div class="buttons">
+                    <div class="b-a"></div>
+                    <div class="b-b"></div>
+                </div>
+                <div class="b-characters">
+                    <div class="b-character-b">B</div>
+                    <div class="b-character-a">A</div>
+                </div>
+                
+                <div class="buttons_s">
+                    <div id="select" class="select"></div>
+                    <div id="start" class="start"></div>
+                </div>
+                <div class="buttons-s-text">
+                    <div class="select-text">SELECT</div>
+                    <div class="start-text">START</div>
+                </div>
+                <div class="button-sound">
+                    <img id="soundIcon" class="sound enable" src="assets/images/sound-enable.svg" alt="Sound Icon" width=50 height=50>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/poke-model.js"></script>
+<script src="assets/js/poke-api.js"></script>
+</html>

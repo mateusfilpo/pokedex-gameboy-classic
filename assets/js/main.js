@@ -115,7 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (event.key === 'Enter') {
             startButton.click();
-            handleButtonAnimation('.start');
+            const button = document.querySelector('.start');
+            button.classList.add('start-select-active');
+                setTimeout(() => {
+                button.classList.remove('start-select-active');
+            }, 400);
         }
 
         if (['z', 'Z', 'a', 'A', 'x', 'X', 'b', 'B', ' '].includes(event.key)) {
@@ -125,6 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (['x', 'X', 'b', 'B'].includes(event.key)) {
                 handleButtonAnimation('.b-b');
+            }
+
+            if (event.key === ' ') {
+                const button = document.querySelector('.select');
+                button.classList.add('start-select-active');
+                setTimeout(() => {
+                    button.classList.remove('start-select-active');
+                }, 400);
             }
 
             if (event.key === ' ') {
@@ -138,8 +150,28 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPokemonDetails(index);
         }
 
-        if (event.key === 'ArrowRight') handleRight();
-        if (event.key === 'ArrowLeft') handleLeft();
+        if (event.key === 'ArrowRight') {
+            const button = document.querySelector('.d-x-right');
+                button.classList.add('active-button-x');
+                setTimeout(() => {
+                button.classList.remove('active-button-x');
+            }, 400);
+            if (!powerLight.classList.contains('ligado')) {
+                return;
+            }
+            handleRight();
+        } 
+        if (event.key === 'ArrowLeft') {
+            const button = document.querySelector('.d-x-left');
+                button.classList.add('active-button-x');
+                setTimeout(() => {
+                button.classList.remove('active-button-x');
+            }, 400);
+            if (!powerLight.classList.contains('ligado')) {
+                return;
+            }
+            handleLeft();
+        } 
     });
 
     startButton.addEventListener('click', () => {

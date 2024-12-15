@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const closePopup = document.getElementById("closePopup");
     const powerLight = document.querySelector('.power');
     const screen = document.querySelector('.screen');
+    const aButton = document.querySelector('.b-a');
+    const bButton = document.querySelector('.b-b');
+    const leftButton = document.querySelector('.d-x-left');
+    const rightButton = document.querySelector('.d-x-right');
     const startButton = document.getElementById('start');
     const selectButton = document.getElementById('select');
     const descriptionText = document.querySelector('.description-text');
@@ -174,6 +178,34 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
     });
 
+    leftButton.addEventListener('click', () => {
+        if (powerLight.classList.contains('ligado')) {
+            handleLeft();
+        }
+    });
+
+    rightButton.addEventListener('click', () => {
+        if (powerLight.classList.contains('ligado')) {
+            handleRight();
+        }
+    });
+
+    aButton.addEventListener('click', () => {
+        if (powerLight.classList.contains('ligado')) {
+            playAudio();
+            showStatus = !showStatus;
+            loadPokemonDetails(index);
+        }
+    });
+
+    bButton.addEventListener('click', () => {
+        if (powerLight.classList.contains('ligado')) {
+            playAudio();
+            showStatus = !showStatus;
+            loadPokemonDetails(index);
+        }
+    });
+
     startButton.addEventListener('click', () => {
         if (powerLight.classList.contains('ligado')) {
             powerLight.classList.remove('ligado');
@@ -200,6 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showStatus = !showStatus;
         loadPokemonDetails(index);
     });
+
+
 
     function handleRight() {
         if (index < limit) {

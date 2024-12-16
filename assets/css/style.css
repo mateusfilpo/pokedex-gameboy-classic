@@ -17,8 +17,8 @@ body {
     border: 2px solid black;
     border-radius: 100%;
     position: absolute;
-    top: 5%;
-    left: 8%;
+    top: 15%;
+    left: 31.5%;
     width: 40px;
     height: 40px;
     
@@ -34,6 +34,8 @@ body {
     cursor: pointer;
 
     transition: scale 0.2s ease;
+
+    z-index: 1001;
 }
 
 .help:active {
@@ -44,8 +46,8 @@ body {
 .popup {
     position: fixed;
     z-index: 1000;
-    top: 10%;
-    left: 8%;
+    top: 17.6%;
+    left: 31.5%;
     width: 500px;
     height: 355px;
     background-color: #b8b5b5;
@@ -620,4 +622,120 @@ body {
     left: 88%;
     cursor: pointer;
     z-index: 999;
+}
+
+@media (max-width: 450px) {
+    body {
+        background-color: rgb(193, 183, 163);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .popup {
+        width: 100vw;
+        height: 100vh; 
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        
+    }
+
+    .popup-content {
+        font-size: 14px; 
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content h3 {
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    .popup-content ul {
+        margin-left: -20px;
+    }
+
+    .popup-content ul li {
+        margin-bottom: 15px;
+    }
+
+    .popup .close {
+        font-size: 20px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .moldura {
+        border: none;
+        background-color: rgb(193, 183, 163);
+    }
+
+    .game-boy {
+        border: none;
+        box-shadow: none;
+        border-radius: 0%;
+    }
+
+    .sound {
+        left: 82%;
+        top: 174%;
+    }
+
+}
+
+@media  (min-width: 360px) and (min-height: 559px) {
+
+    .help {
+        position: absolute;
+        top: 1%;
+        left: 45%;
+        border: 0.5px solid black;
+        background-color: rgba(168, 157, 141, 0.4);
+        z-index: 1001;
+    }
+}
+
+@media (min-width: 361px) and (min-height: 561px) {
+
+    .help {
+        top: 5%;
+        left: 45%;
+        border: 0.8px solid black;
+        background-color: rgba(168, 157, 141, 0.3);
+        z-index: 1001;
+    }
+}
+
+@media  (min-width: 768px) {
+    .help {
+        background-color: #b8b5b5;
+    
+        border: 2px solid black;
+        border-radius: 100%;
+        position: absolute;
+        top: 15%;
+        left: 31.5%;
+        width: 40px;
+        height: 40px;
+        
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        
+        font-family: 'Segoe UI';
+        font-size: 23px;
+        font-weight: bold;
+    
+        cursor: pointer;
+    
+        transition: scale 0.2s ease;
+    
+        z-index: 1001;
+    }
+    
 }

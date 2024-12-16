@@ -34,6 +34,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    helpButton.addEventListener("click", () => {
+        playAudio();
+        if (isMobileDevice()) {
+            popup.querySelector('.popup-content').innerHTML = `
+                <span id="closePopup" class="close">&times;</span>
+                <h3>Controls</h3>
+                <ul>
+                    <li><strong>Tap Start</strong>: turns on/off the Pokédex</li>
+                    <li><strong>D-Pad Left/Right</strong>: Navigate Pokémon</li>
+                    <li><strong>Tap Select</strong>: Toggle Description and Status</li>
+                    <li><strong>Tap A</strong>: Toggle Description and Status</li>
+                    <li><strong>Tap B</strong>: Toggle Description and Status</li>
+                    <li><strong>Sound Icon</strong>: Turn audio on/off</li>
+                </ul>
+            `;
+
+            document.getElementById("closePopup").addEventListener("click", () => {
+                playAudio();
+                popup.classList.add("hidden");
+                helpButton.style.display = "flex";
+            });
+        }
+        popup.classList.remove("hidden");
+        helpButton.style.display = "none";
+    });
+
     function handleButtonAnimation(buttonClass) {
         const button = document.querySelector(buttonClass);
         button.classList.add('active-button-a-b');

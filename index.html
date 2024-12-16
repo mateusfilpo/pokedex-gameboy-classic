@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/images/pokemon-icon.svg" type="image/svg+xml">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
@@ -13,25 +14,25 @@
      
 </head>
 <body>
+    <div class="help">
+        <p>?</p>
+    </div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h3>Controls</h3>
+            <ul>
+                <li><strong>Enter</strong>: Start (turns on the Pokédex)</li>
+                <li><strong>Left and Right Arrows</strong>: Navigate through the Pokémon</li>
+                <li><strong>Z or A</strong>: Button A (toggles between Description and Status)</li>
+                <li><strong>X or B</strong>: Button B (toggles between Description and Status)</li>
+                <li><strong>Space</strong>: Select (toggles between Description and Status)</li>
+                <li><strong>Sound Icon</strong>: Turns audio on/off</li>
+                <li><strong>Esc</strong>: Open or Close this screen</li>
+            </ul>
+        </div>
+    </div>
     <div class="moldura">
-        <div class="help">
-            <p>?</p>
-        </div>
-        <div id="popup" class="popup hidden">
-            <div class="popup-content">
-                <span id="closePopup" class="close">&times;</span>
-                <h3>Controls</h3>
-                <ul>
-                    <li><strong>Enter</strong>: Start (turns on the Pokédex)</li>
-                    <li><strong>Left and Right Arrows</strong>: Navigate through the Pokémon</li>
-                    <li><strong>Z or A</strong>: Button A (toggles between Description and Status)</li>
-                    <li><strong>X or B</strong>: Button B (toggles between Description and Status)</li>
-                    <li><strong>Space</strong>: Select (toggles between Description and Status)</li>
-                    <li><strong>Sound Icon</strong>: Turns audio on/off</li>
-                    <li><strong>Esc</strong>: Open or Close this screen</li>
-                </ul>
-            </div>
-        </div>
         <div class="game-boy">
             <div class="screen-border">
                 <div class="screen-label">
